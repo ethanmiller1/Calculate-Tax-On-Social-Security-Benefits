@@ -32,6 +32,8 @@ int main()
 		cout << "Taxable Amount on SSB:    " << setw(10) << getTaxableAmount(testCase) << endl << endl << endl;
 	}
 
-	system("pause");
+	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
+	Application::Run(gcnew IncomeTaxCalculator::Form1040());
 	return 0;
 }
