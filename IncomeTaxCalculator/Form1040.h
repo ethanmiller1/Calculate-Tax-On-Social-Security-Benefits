@@ -1,5 +1,6 @@
 #pragma once
 #include "InputData_BO.h"
+#include <windowsx.h>
 
 namespace IncomeTaxCalculator {
 
@@ -562,6 +563,13 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	// Create an instance of the InputData_BO struct.
 	InputData_BO testCase("testCase1.txt");
 
+	// Check filing status.
+	if (single->Checked) { testCase.fs = SINGLE; }
+	else if (married->Checked) { testCase.fs = MARRIED; }
+	else if (marriedfs->Checked) { testCase.fs = MARRIEDFS; }
+	else if (widow->Checked) { testCase.fs = WIDOW; }
+	else if (hdhousehold->Checked) { testCase.fs = HDHOUSEHOLD; }
+
 	// Create variable to store how boxes checked for standard deduction.
 	int boxes_checked(0);
 
@@ -607,7 +615,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 
 	MessageBox::Show
 	(
-		"Filing status: " + "\n"
+		"Filing status: " + testCase.fs + "\n"
 		"Standard deduction: " + testCase.sd + "\n"
 		"Living Arrangement: " + "\n"
 		"Wages: " + testCase.wages + 
