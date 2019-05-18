@@ -43,40 +43,60 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::ToolStrip^  toolStrip1;
 
 	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  wages;
+
 	private: System::Windows::Forms::ToolStripSplitButton^  toolStripSplitButton1;
 	private: System::Windows::Forms::ToolStripMenuItem^  importFileToolStripMenuItem;
+	private: System::Windows::Forms::TextBox^  taxExmp;
 
 
-	private: System::Windows::Forms::TextBox^  textBox2;
+
 	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::TextBox^  textBox3;
+	private: System::Windows::Forms::TextBox^  taxInt;
+
 	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::TextBox^  textBox4;
+	private: System::Windows::Forms::TextBox^  qualDiv;
+
 	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::TextBox^  textBox5;
+	private: System::Windows::Forms::TextBox^  ordDiv;
+
 	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::TextBox^  textBox6;
+	private: System::Windows::Forms::TextBox^  capGain;
+
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::TextBox^  textBox7;
+	private: System::Windows::Forms::TextBox^  taxAmt;
+
 	private: System::Windows::Forms::Label^  label7;
-	private: System::Windows::Forms::TextBox^  textBox8;
+	private: System::Windows::Forms::TextBox^  ssb;
+
 	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::TextBox^  textBox9;
+	private: System::Windows::Forms::TextBox^  adj2inc;
+
 	private: System::Windows::Forms::Label^  label9;
-	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::RadioButton^  radioButton1;
-	private: System::Windows::Forms::RadioButton^  radioButton2;
+	private: System::Windows::Forms::Button^  submit;
+
+	private: System::Windows::Forms::RadioButton^  married;
+
+	private: System::Windows::Forms::RadioButton^  single;
+
+
 	private: System::Windows::Forms::Label^  label10;
+	private: System::Windows::Forms::RadioButton^  marriedfs;
 
-	private: System::Windows::Forms::RadioButton^  radioButton3;
-	private: System::Windows::Forms::RadioButton^  radioButton4;
-	private: System::Windows::Forms::RadioButton^  radioButton5;
 
-	private: System::Windows::Forms::CheckBox^  checkBox1;
-	private: System::Windows::Forms::CheckBox^  checkBox2;
-	private: System::Windows::Forms::CheckBox^  checkBox3;
-	private: System::Windows::Forms::CheckBox^  checkBox4;
+	private: System::Windows::Forms::RadioButton^  widow;
+	private: System::Windows::Forms::RadioButton^  hdhousehold;
+	private: System::Windows::Forms::CheckBox^  over65;
+	private: System::Windows::Forms::CheckBox^  blind;
+	private: System::Windows::Forms::CheckBox^  sblind;
+
+
+
+
+
+
+	private: System::Windows::Forms::CheckBox^  sover65;
+
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::ToolStripMenuItem^  exportDataToFileToolStripMenuItem;
 
@@ -105,34 +125,34 @@ namespace IncomeTaxCalculator {
 			this->importFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exportDataToFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->wages = (gcnew System::Windows::Forms::TextBox());
+			this->taxExmp = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->taxInt = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->qualDiv = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->ordDiv = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->capGain = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->taxAmt = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->ssb = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->adj2inc = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->submit = (gcnew System::Windows::Forms::Button());
+			this->married = (gcnew System::Windows::Forms::RadioButton());
+			this->single = (gcnew System::Windows::Forms::RadioButton());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton5 = (gcnew System::Windows::Forms::RadioButton());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBox3 = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
+			this->marriedfs = (gcnew System::Windows::Forms::RadioButton());
+			this->widow = (gcnew System::Windows::Forms::RadioButton());
+			this->hdhousehold = (gcnew System::Windows::Forms::RadioButton());
+			this->over65 = (gcnew System::Windows::Forms::CheckBox());
+			this->blind = (gcnew System::Windows::Forms::CheckBox());
+			this->sblind = (gcnew System::Windows::Forms::CheckBox());
+			this->sover65 = (gcnew System::Windows::Forms::CheckBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->toolStrip1->SuspendLayout();
@@ -211,19 +231,19 @@ namespace IncomeTaxCalculator {
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Enter Wages:";
 			// 
-			// textBox1
+			// wages
 			// 
-			this->textBox1->Location = System::Drawing::Point(282, 72);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 3;
+			this->wages->Location = System::Drawing::Point(282, 72);
+			this->wages->Name = L"wages";
+			this->wages->Size = System::Drawing::Size(100, 20);
+			this->wages->TabIndex = 3;
 			// 
-			// textBox2
+			// taxExmp
 			// 
-			this->textBox2->Location = System::Drawing::Point(282, 98);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
-			this->textBox2->TabIndex = 5;
+			this->taxExmp->Location = System::Drawing::Point(282, 98);
+			this->taxExmp->Name = L"taxExmp";
+			this->taxExmp->Size = System::Drawing::Size(100, 20);
+			this->taxExmp->TabIndex = 5;
 			// 
 			// label2
 			// 
@@ -234,12 +254,12 @@ namespace IncomeTaxCalculator {
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Enter Tax Exempt Interest:";
 			// 
-			// textBox3
+			// taxInt
 			// 
-			this->textBox3->Location = System::Drawing::Point(282, 124);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
-			this->textBox3->TabIndex = 7;
+			this->taxInt->Location = System::Drawing::Point(282, 124);
+			this->taxInt->Name = L"taxInt";
+			this->taxInt->Size = System::Drawing::Size(100, 20);
+			this->taxInt->TabIndex = 7;
 			// 
 			// label3
 			// 
@@ -250,12 +270,12 @@ namespace IncomeTaxCalculator {
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Enter Taxable Interest:";
 			// 
-			// textBox4
+			// qualDiv
 			// 
-			this->textBox4->Location = System::Drawing::Point(282, 150);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 20);
-			this->textBox4->TabIndex = 9;
+			this->qualDiv->Location = System::Drawing::Point(282, 150);
+			this->qualDiv->Name = L"qualDiv";
+			this->qualDiv->Size = System::Drawing::Size(100, 20);
+			this->qualDiv->TabIndex = 9;
 			// 
 			// label4
 			// 
@@ -266,12 +286,12 @@ namespace IncomeTaxCalculator {
 			this->label4->TabIndex = 8;
 			this->label4->Text = L"Enter Qualified Dividends:";
 			// 
-			// textBox5
+			// ordDiv
 			// 
-			this->textBox5->Location = System::Drawing::Point(282, 176);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 20);
-			this->textBox5->TabIndex = 11;
+			this->ordDiv->Location = System::Drawing::Point(282, 176);
+			this->ordDiv->Name = L"ordDiv";
+			this->ordDiv->Size = System::Drawing::Size(100, 20);
+			this->ordDiv->TabIndex = 11;
 			// 
 			// label5
 			// 
@@ -282,12 +302,12 @@ namespace IncomeTaxCalculator {
 			this->label5->TabIndex = 10;
 			this->label5->Text = L"Enter Ordinary Dividends:";
 			// 
-			// textBox6
+			// capGain
 			// 
-			this->textBox6->Location = System::Drawing::Point(282, 202);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(100, 20);
-			this->textBox6->TabIndex = 13;
+			this->capGain->Location = System::Drawing::Point(282, 202);
+			this->capGain->Name = L"capGain";
+			this->capGain->Size = System::Drawing::Size(100, 20);
+			this->capGain->TabIndex = 13;
 			// 
 			// label6
 			// 
@@ -298,12 +318,12 @@ namespace IncomeTaxCalculator {
 			this->label6->TabIndex = 12;
 			this->label6->Text = L"Capital Gains Distribution (or loss):";
 			// 
-			// textBox7
+			// taxAmt
 			// 
-			this->textBox7->Location = System::Drawing::Point(282, 228);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(100, 20);
-			this->textBox7->TabIndex = 15;
+			this->taxAmt->Location = System::Drawing::Point(282, 228);
+			this->taxAmt->Name = L"taxAmt";
+			this->taxAmt->Size = System::Drawing::Size(100, 20);
+			this->taxAmt->TabIndex = 15;
 			// 
 			// label7
 			// 
@@ -314,12 +334,12 @@ namespace IncomeTaxCalculator {
 			this->label7->TabIndex = 14;
 			this->label7->Text = L"Enter Taxable Amount:";
 			// 
-			// textBox8
+			// ssb
 			// 
-			this->textBox8->Location = System::Drawing::Point(282, 254);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(100, 20);
-			this->textBox8->TabIndex = 17;
+			this->ssb->Location = System::Drawing::Point(282, 254);
+			this->ssb->Name = L"ssb";
+			this->ssb->Size = System::Drawing::Size(100, 20);
+			this->ssb->TabIndex = 17;
 			// 
 			// label8
 			// 
@@ -330,12 +350,12 @@ namespace IncomeTaxCalculator {
 			this->label8->TabIndex = 16;
 			this->label8->Text = L"Enter Social Security Benefits:";
 			// 
-			// textBox9
+			// adj2inc
 			// 
-			this->textBox9->Location = System::Drawing::Point(282, 280);
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(100, 20);
-			this->textBox9->TabIndex = 19;
+			this->adj2inc->Location = System::Drawing::Point(282, 280);
+			this->adj2inc->Name = L"adj2inc";
+			this->adj2inc->Size = System::Drawing::Size(100, 20);
+			this->adj2inc->TabIndex = 19;
 			// 
 			// label9
 			// 
@@ -346,39 +366,39 @@ namespace IncomeTaxCalculator {
 			this->label9->TabIndex = 18;
 			this->label9->Text = L"Enter Adjustments to Income:";
 			// 
-			// button1
+			// submit
 			// 
-			this->button1->BackColor = System::Drawing::SystemColors::MenuHighlight;
-			this->button1->ForeColor = System::Drawing::Color::Snow;
-			this->button1->Location = System::Drawing::Point(282, 525);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(100, 33);
-			this->button1->TabIndex = 20;
-			this->button1->Text = L"OK";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &Form1040::button1_Click);
+			this->submit->BackColor = System::Drawing::SystemColors::MenuHighlight;
+			this->submit->ForeColor = System::Drawing::Color::Snow;
+			this->submit->Location = System::Drawing::Point(282, 525);
+			this->submit->Name = L"submit";
+			this->submit->Size = System::Drawing::Size(100, 33);
+			this->submit->TabIndex = 20;
+			this->submit->Text = L"OK";
+			this->submit->UseVisualStyleBackColor = false;
+			this->submit->Click += gcnew System::EventHandler(this, &Form1040::button1_Click);
 			// 
-			// radioButton1
+			// married
 			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(243, 321);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(60, 17);
-			this->radioButton1->TabIndex = 21;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Married";
-			this->radioButton1->UseVisualStyleBackColor = true;
+			this->married->AutoSize = true;
+			this->married->Location = System::Drawing::Point(243, 321);
+			this->married->Name = L"married";
+			this->married->Size = System::Drawing::Size(60, 17);
+			this->married->TabIndex = 21;
+			this->married->TabStop = true;
+			this->married->Text = L"Married";
+			this->married->UseVisualStyleBackColor = true;
 			// 
-			// radioButton2
+			// single
 			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(183, 321);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(54, 17);
-			this->radioButton2->TabIndex = 22;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"Single";
-			this->radioButton2->UseVisualStyleBackColor = true;
+			this->single->AutoSize = true;
+			this->single->Location = System::Drawing::Point(183, 321);
+			this->single->Name = L"single";
+			this->single->Size = System::Drawing::Size(54, 17);
+			this->single->TabIndex = 22;
+			this->single->TabStop = true;
+			this->single->Text = L"Single";
+			this->single->UseVisualStyleBackColor = true;
 			// 
 			// label10
 			// 
@@ -389,78 +409,78 @@ namespace IncomeTaxCalculator {
 			this->label10->TabIndex = 23;
 			this->label10->Text = L"Filing Status:";
 			// 
-			// radioButton3
+			// marriedfs
 			// 
-			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(183, 344);
-			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(146, 17);
-			this->radioButton3->TabIndex = 25;
-			this->radioButton3->TabStop = true;
-			this->radioButton3->Text = L"Married (Filing Separately)";
-			this->radioButton3->UseVisualStyleBackColor = true;
+			this->marriedfs->AutoSize = true;
+			this->marriedfs->Location = System::Drawing::Point(183, 344);
+			this->marriedfs->Name = L"marriedfs";
+			this->marriedfs->Size = System::Drawing::Size(146, 17);
+			this->marriedfs->TabIndex = 25;
+			this->marriedfs->TabStop = true;
+			this->marriedfs->Text = L"Married (Filing Separately)";
+			this->marriedfs->UseVisualStyleBackColor = true;
 			// 
-			// radioButton4
+			// widow
 			// 
-			this->radioButton4->AutoSize = true;
-			this->radioButton4->Location = System::Drawing::Point(309, 321);
-			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(73, 17);
-			this->radioButton4->TabIndex = 24;
-			this->radioButton4->TabStop = true;
-			this->radioButton4->Text = L"Widow(er)";
-			this->radioButton4->UseVisualStyleBackColor = true;
+			this->widow->AutoSize = true;
+			this->widow->Location = System::Drawing::Point(309, 321);
+			this->widow->Name = L"widow";
+			this->widow->Size = System::Drawing::Size(73, 17);
+			this->widow->TabIndex = 24;
+			this->widow->TabStop = true;
+			this->widow->Text = L"Widow(er)";
+			this->widow->UseVisualStyleBackColor = true;
 			// 
-			// radioButton5
+			// hdhousehold
 			// 
-			this->radioButton5->AutoSize = true;
-			this->radioButton5->Location = System::Drawing::Point(183, 367);
-			this->radioButton5->Name = L"radioButton5";
-			this->radioButton5->Size = System::Drawing::Size(210, 17);
-			this->radioButton5->TabIndex = 26;
-			this->radioButton5->TabStop = true;
-			this->radioButton5->Text = L"Head of Household (e.g. Single Parent)";
-			this->radioButton5->UseVisualStyleBackColor = true;
+			this->hdhousehold->AutoSize = true;
+			this->hdhousehold->Location = System::Drawing::Point(183, 367);
+			this->hdhousehold->Name = L"hdhousehold";
+			this->hdhousehold->Size = System::Drawing::Size(210, 17);
+			this->hdhousehold->TabIndex = 26;
+			this->hdhousehold->TabStop = true;
+			this->hdhousehold->Text = L"Head of Household (e.g. Single Parent)";
+			this->hdhousehold->UseVisualStyleBackColor = true;
 			// 
-			// checkBox1
+			// over65
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(96, 422);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(207, 17);
-			this->checkBox1->TabIndex = 28;
-			this->checkBox1->Text = L"You were born before January 2, 1954";
-			this->checkBox1->UseVisualStyleBackColor = true;
+			this->over65->AutoSize = true;
+			this->over65->Location = System::Drawing::Point(96, 422);
+			this->over65->Name = L"over65";
+			this->over65->Size = System::Drawing::Size(207, 17);
+			this->over65->TabIndex = 28;
+			this->over65->Text = L"You were born before January 2, 1954";
+			this->over65->UseVisualStyleBackColor = true;
 			// 
-			// checkBox2
+			// blind
 			// 
-			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(96, 445);
-			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(88, 17);
-			this->checkBox2->TabIndex = 29;
-			this->checkBox2->Text = L"You are blind";
-			this->checkBox2->UseVisualStyleBackColor = true;
+			this->blind->AutoSize = true;
+			this->blind->Location = System::Drawing::Point(96, 445);
+			this->blind->Name = L"blind";
+			this->blind->Size = System::Drawing::Size(88, 17);
+			this->blind->TabIndex = 29;
+			this->blind->Text = L"You are blind";
+			this->blind->UseVisualStyleBackColor = true;
 			// 
-			// checkBox3
+			// sblind
 			// 
-			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(96, 491);
-			this->checkBox3->Name = L"checkBox3";
-			this->checkBox3->Size = System::Drawing::Size(97, 17);
-			this->checkBox3->TabIndex = 31;
-			this->checkBox3->Text = L"Spouse is blind";
-			this->checkBox3->UseVisualStyleBackColor = true;
+			this->sblind->AutoSize = true;
+			this->sblind->Location = System::Drawing::Point(96, 491);
+			this->sblind->Name = L"sblind";
+			this->sblind->Size = System::Drawing::Size(97, 17);
+			this->sblind->TabIndex = 31;
+			this->sblind->Text = L"Spouse is blind";
+			this->sblind->UseVisualStyleBackColor = true;
 			// 
-			// checkBox4
+			// sover65
 			// 
-			this->checkBox4->AutoSize = true;
-			this->checkBox4->Location = System::Drawing::Point(96, 468);
-			this->checkBox4->Name = L"checkBox4";
-			this->checkBox4->Size = System::Drawing::Size(220, 17);
-			this->checkBox4->TabIndex = 30;
-			this->checkBox4->Text = L"Spouse was born before January 2, 1954";
-			this->checkBox4->UseVisualStyleBackColor = true;
+			this->sover65->AutoSize = true;
+			this->sover65->Location = System::Drawing::Point(96, 468);
+			this->sover65->Name = L"sover65";
+			this->sover65->Size = System::Drawing::Size(220, 17);
+			this->sover65->TabIndex = 30;
+			this->sover65->Text = L"Spouse was born before January 2, 1954";
+			this->sover65->UseVisualStyleBackColor = true;
 			// 
 			// label11
 			// 
@@ -477,34 +497,34 @@ namespace IncomeTaxCalculator {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(443, 587);
 			this->Controls->Add(this->label11);
-			this->Controls->Add(this->checkBox3);
-			this->Controls->Add(this->checkBox4);
-			this->Controls->Add(this->checkBox2);
-			this->Controls->Add(this->checkBox1);
-			this->Controls->Add(this->radioButton5);
-			this->Controls->Add(this->radioButton3);
-			this->Controls->Add(this->radioButton4);
+			this->Controls->Add(this->sblind);
+			this->Controls->Add(this->sover65);
+			this->Controls->Add(this->blind);
+			this->Controls->Add(this->over65);
+			this->Controls->Add(this->hdhousehold);
+			this->Controls->Add(this->marriedfs);
+			this->Controls->Add(this->widow);
 			this->Controls->Add(this->label10);
-			this->Controls->Add(this->radioButton2);
-			this->Controls->Add(this->radioButton1);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox9);
+			this->Controls->Add(this->single);
+			this->Controls->Add(this->married);
+			this->Controls->Add(this->submit);
+			this->Controls->Add(this->adj2inc);
 			this->Controls->Add(this->label9);
-			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->ssb);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->textBox7);
+			this->Controls->Add(this->taxAmt);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->textBox6);
+			this->Controls->Add(this->capGain);
 			this->Controls->Add(this->label6);
-			this->Controls->Add(this->textBox5);
+			this->Controls->Add(this->ordDiv);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->qualDiv);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->taxInt);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->taxExmp);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->wages);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->toolStrip1);
 			this->Controls->Add(this->menuStrip1);
@@ -521,6 +541,8 @@ namespace IncomeTaxCalculator {
 		}
 #pragma endregion
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	InputData_BO testCase("testCase1.txt");
+
 	String ^ firstName = textBox1->Text;
 	String ^ lastName = textBox2->Text;
 	MessageBox::Show("Hello " + firstName + " " + lastName + "! How are you?");
