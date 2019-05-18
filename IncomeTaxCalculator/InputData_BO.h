@@ -10,7 +10,7 @@ struct InputData_BO
 {
 	string   hdr;        // File heading
 	int      fs;         // Filing status
-	int      sd;         // Standard deduction (boxes checked)
+	double   sd;         // Standard deduction (boxes checked)
 	int      LA;         // Living Arrangement {0,1,2,3} 
 	double   wages;      // Wages
 	double 	 taxExmp;    // Tax exempt interest

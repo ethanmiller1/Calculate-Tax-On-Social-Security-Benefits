@@ -75,30 +75,42 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Button^  submit;
 
-	private: System::Windows::Forms::RadioButton^  married;
-
-	private: System::Windows::Forms::RadioButton^  single;
-
-
-	private: System::Windows::Forms::Label^  label10;
-	private: System::Windows::Forms::RadioButton^  marriedfs;
-
-
-	private: System::Windows::Forms::RadioButton^  widow;
-	private: System::Windows::Forms::RadioButton^  hdhousehold;
-	private: System::Windows::Forms::CheckBox^  over65;
-	private: System::Windows::Forms::CheckBox^  blind;
-	private: System::Windows::Forms::CheckBox^  sblind;
 
 
 
 
 
 
-	private: System::Windows::Forms::CheckBox^  sover65;
 
-	private: System::Windows::Forms::Label^  label11;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::ToolStripMenuItem^  exportDataToFileToolStripMenuItem;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
+	private: System::Windows::Forms::RadioButton^  hdhousehold;
+	private: System::Windows::Forms::RadioButton^  marriedfs;
+	private: System::Windows::Forms::RadioButton^  widow;
+	private: System::Windows::Forms::RadioButton^  single;
+	private: System::Windows::Forms::RadioButton^  married;
+	private: System::Windows::Forms::GroupBox^  groupBox2;
+	private: System::Windows::Forms::CheckBox^  sblind;
+	private: System::Windows::Forms::CheckBox^  sover65;
+	private: System::Windows::Forms::CheckBox^  blind;
+	private: System::Windows::Forms::CheckBox^  over65;
+
 
 
 
@@ -143,19 +155,21 @@ namespace IncomeTaxCalculator {
 			this->adj2inc = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->submit = (gcnew System::Windows::Forms::Button());
-			this->married = (gcnew System::Windows::Forms::RadioButton());
-			this->single = (gcnew System::Windows::Forms::RadioButton());
-			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->hdhousehold = (gcnew System::Windows::Forms::RadioButton());
 			this->marriedfs = (gcnew System::Windows::Forms::RadioButton());
 			this->widow = (gcnew System::Windows::Forms::RadioButton());
-			this->hdhousehold = (gcnew System::Windows::Forms::RadioButton());
-			this->over65 = (gcnew System::Windows::Forms::CheckBox());
-			this->blind = (gcnew System::Windows::Forms::CheckBox());
+			this->single = (gcnew System::Windows::Forms::RadioButton());
+			this->married = (gcnew System::Windows::Forms::RadioButton());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->sblind = (gcnew System::Windows::Forms::CheckBox());
 			this->sover65 = (gcnew System::Windows::Forms::CheckBox());
-			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->blind = (gcnew System::Windows::Forms::CheckBox());
+			this->over65 = (gcnew System::Windows::Forms::CheckBox());
 			this->menuStrip1->SuspendLayout();
 			this->toolStrip1->SuspendLayout();
+			this->groupBox1->SuspendLayout();
+			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -370,7 +384,7 @@ namespace IncomeTaxCalculator {
 			// 
 			this->submit->BackColor = System::Drawing::SystemColors::MenuHighlight;
 			this->submit->ForeColor = System::Drawing::Color::Snow;
-			this->submit->Location = System::Drawing::Point(282, 525);
+			this->submit->Location = System::Drawing::Point(282, 615);
 			this->submit->Name = L"submit";
 			this->submit->Size = System::Drawing::Size(100, 33);
 			this->submit->TabIndex = 20;
@@ -378,44 +392,38 @@ namespace IncomeTaxCalculator {
 			this->submit->UseVisualStyleBackColor = false;
 			this->submit->Click += gcnew System::EventHandler(this, &Form1040::button1_Click);
 			// 
-			// married
+			// groupBox1
 			// 
-			this->married->AutoSize = true;
-			this->married->Location = System::Drawing::Point(243, 321);
-			this->married->Name = L"married";
-			this->married->Size = System::Drawing::Size(60, 17);
-			this->married->TabIndex = 21;
-			this->married->TabStop = true;
-			this->married->Text = L"Married";
-			this->married->UseVisualStyleBackColor = true;
+			this->groupBox1->Controls->Add(this->hdhousehold);
+			this->groupBox1->Controls->Add(this->marriedfs);
+			this->groupBox1->Controls->Add(this->widow);
+			this->groupBox1->Controls->Add(this->single);
+			this->groupBox1->Controls->Add(this->married);
+			this->groupBox1->Location = System::Drawing::Point(91, 309);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(291, 143);
+			this->groupBox1->TabIndex = 33;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Filing Status:";
 			// 
-			// single
+			// hdhousehold
 			// 
-			this->single->AutoSize = true;
-			this->single->Location = System::Drawing::Point(183, 321);
-			this->single->Name = L"single";
-			this->single->Size = System::Drawing::Size(54, 17);
-			this->single->TabIndex = 22;
-			this->single->TabStop = true;
-			this->single->Text = L"Single";
-			this->single->UseVisualStyleBackColor = true;
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(97, 323);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(67, 13);
-			this->label10->TabIndex = 23;
-			this->label10->Text = L"Filing Status:";
+			this->hdhousehold->AutoSize = true;
+			this->hdhousehold->Location = System::Drawing::Point(24, 111);
+			this->hdhousehold->Name = L"hdhousehold";
+			this->hdhousehold->Size = System::Drawing::Size(210, 17);
+			this->hdhousehold->TabIndex = 31;
+			this->hdhousehold->TabStop = true;
+			this->hdhousehold->Text = L"Head of Household (e.g. Single Parent)";
+			this->hdhousehold->UseVisualStyleBackColor = true;
 			// 
 			// marriedfs
 			// 
 			this->marriedfs->AutoSize = true;
-			this->marriedfs->Location = System::Drawing::Point(183, 344);
+			this->marriedfs->Location = System::Drawing::Point(24, 88);
 			this->marriedfs->Name = L"marriedfs";
 			this->marriedfs->Size = System::Drawing::Size(146, 17);
-			this->marriedfs->TabIndex = 25;
+			this->marriedfs->TabIndex = 30;
 			this->marriedfs->TabStop = true;
 			this->marriedfs->Text = L"Married (Filing Separately)";
 			this->marriedfs->UseVisualStyleBackColor = true;
@@ -423,90 +431,96 @@ namespace IncomeTaxCalculator {
 			// widow
 			// 
 			this->widow->AutoSize = true;
-			this->widow->Location = System::Drawing::Point(309, 321);
+			this->widow->Location = System::Drawing::Point(24, 65);
 			this->widow->Name = L"widow";
 			this->widow->Size = System::Drawing::Size(73, 17);
-			this->widow->TabIndex = 24;
+			this->widow->TabIndex = 29;
 			this->widow->TabStop = true;
 			this->widow->Text = L"Widow(er)";
 			this->widow->UseVisualStyleBackColor = true;
 			// 
-			// hdhousehold
+			// single
 			// 
-			this->hdhousehold->AutoSize = true;
-			this->hdhousehold->Location = System::Drawing::Point(183, 367);
-			this->hdhousehold->Name = L"hdhousehold";
-			this->hdhousehold->Size = System::Drawing::Size(210, 17);
-			this->hdhousehold->TabIndex = 26;
-			this->hdhousehold->TabStop = true;
-			this->hdhousehold->Text = L"Head of Household (e.g. Single Parent)";
-			this->hdhousehold->UseVisualStyleBackColor = true;
+			this->single->AutoSize = true;
+			this->single->Location = System::Drawing::Point(24, 19);
+			this->single->Name = L"single";
+			this->single->Size = System::Drawing::Size(54, 17);
+			this->single->TabIndex = 28;
+			this->single->TabStop = true;
+			this->single->Text = L"Single";
+			this->single->UseVisualStyleBackColor = true;
 			// 
-			// over65
+			// married
 			// 
-			this->over65->AutoSize = true;
-			this->over65->Location = System::Drawing::Point(96, 422);
-			this->over65->Name = L"over65";
-			this->over65->Size = System::Drawing::Size(207, 17);
-			this->over65->TabIndex = 28;
-			this->over65->Text = L"You were born before January 2, 1954";
-			this->over65->UseVisualStyleBackColor = true;
+			this->married->AutoSize = true;
+			this->married->Location = System::Drawing::Point(24, 42);
+			this->married->Name = L"married";
+			this->married->Size = System::Drawing::Size(60, 17);
+			this->married->TabIndex = 27;
+			this->married->TabStop = true;
+			this->married->Text = L"Married";
+			this->married->UseVisualStyleBackColor = true;
 			// 
-			// blind
+			// groupBox2
 			// 
-			this->blind->AutoSize = true;
-			this->blind->Location = System::Drawing::Point(96, 445);
-			this->blind->Name = L"blind";
-			this->blind->Size = System::Drawing::Size(88, 17);
-			this->blind->TabIndex = 29;
-			this->blind->Text = L"You are blind";
-			this->blind->UseVisualStyleBackColor = true;
+			this->groupBox2->Controls->Add(this->sblind);
+			this->groupBox2->Controls->Add(this->sover65);
+			this->groupBox2->Controls->Add(this->blind);
+			this->groupBox2->Controls->Add(this->over65);
+			this->groupBox2->Location = System::Drawing::Point(91, 473);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(291, 116);
+			this->groupBox2->TabIndex = 34;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Standard Deduction:";
 			// 
 			// sblind
 			// 
 			this->sblind->AutoSize = true;
-			this->sblind->Location = System::Drawing::Point(96, 491);
+			this->sblind->Location = System::Drawing::Point(24, 88);
 			this->sblind->Name = L"sblind";
 			this->sblind->Size = System::Drawing::Size(97, 17);
-			this->sblind->TabIndex = 31;
+			this->sblind->TabIndex = 35;
 			this->sblind->Text = L"Spouse is blind";
 			this->sblind->UseVisualStyleBackColor = true;
 			// 
 			// sover65
 			// 
 			this->sover65->AutoSize = true;
-			this->sover65->Location = System::Drawing::Point(96, 468);
+			this->sover65->Location = System::Drawing::Point(24, 65);
 			this->sover65->Name = L"sover65";
 			this->sover65->Size = System::Drawing::Size(220, 17);
-			this->sover65->TabIndex = 30;
+			this->sover65->TabIndex = 34;
 			this->sover65->Text = L"Spouse was born before January 2, 1954";
 			this->sover65->UseVisualStyleBackColor = true;
 			// 
-			// label11
+			// blind
 			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(97, 396);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(105, 13);
-			this->label11->TabIndex = 32;
-			this->label11->Text = L"Standard Deduction:";
+			this->blind->AutoSize = true;
+			this->blind->Location = System::Drawing::Point(24, 42);
+			this->blind->Name = L"blind";
+			this->blind->Size = System::Drawing::Size(88, 17);
+			this->blind->TabIndex = 33;
+			this->blind->Text = L"You are blind";
+			this->blind->UseVisualStyleBackColor = true;
+			// 
+			// over65
+			// 
+			this->over65->AutoSize = true;
+			this->over65->Location = System::Drawing::Point(24, 19);
+			this->over65->Name = L"over65";
+			this->over65->Size = System::Drawing::Size(207, 17);
+			this->over65->TabIndex = 32;
+			this->over65->Text = L"You were born before January 2, 1954";
+			this->over65->UseVisualStyleBackColor = true;
 			// 
 			// Form1040
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(443, 587);
-			this->Controls->Add(this->label11);
-			this->Controls->Add(this->sblind);
-			this->Controls->Add(this->sover65);
-			this->Controls->Add(this->blind);
-			this->Controls->Add(this->over65);
-			this->Controls->Add(this->hdhousehold);
-			this->Controls->Add(this->marriedfs);
-			this->Controls->Add(this->widow);
-			this->Controls->Add(this->label10);
-			this->Controls->Add(this->single);
-			this->Controls->Add(this->married);
+			this->ClientSize = System::Drawing::Size(443, 664);
+			this->Controls->Add(this->groupBox2);
+			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->submit);
 			this->Controls->Add(this->adj2inc);
 			this->Controls->Add(this->label9);
@@ -535,17 +549,77 @@ namespace IncomeTaxCalculator {
 			this->menuStrip1->PerformLayout();
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	// Create an instance of the InputData_BO struct.
 	InputData_BO testCase("testCase1.txt");
 
-	String ^ firstName = textBox1->Text;
-	String ^ lastName = textBox2->Text;
-	MessageBox::Show("Hello " + firstName + " " + lastName + "! How are you?");
+	// Create variable to store how boxes checked for standard deduction.
+	int boxes_checked(0);
+
+	// Add 1 to boxes_checked for every checkbox that is checked.
+	if (over65->Checked) { boxes_checked += 1; }
+	if (blind->Checked) { boxes_checked += 1; }
+	if (sover65->Checked) { boxes_checked += 1; }
+	if (sblind->Checked) { boxes_checked += 1; }
+	
+	// Standard Deduction if single.
+	if (testCase.fs == SINGLE)
+	{
+		switch (boxes_checked)
+		{
+		case 0: testCase.sd = 12000; break;
+		case 1: testCase.sd = 13600; break;
+		case 2: case 3: case 4: testCase.sd = 15200; break;
+		}
+	}
+	// Standard Deduction if married.
+	else
+	{
+		switch (boxes_checked)
+		{
+		case 0: testCase.sd = 24000; break;
+		case 1: testCase.sd = 25300; break;
+		case 2: testCase.sd = 26600; break;
+		case 3: testCase.sd = 27900; break;
+		case 4: testCase.sd = 29200; break;
+		}
+	}
+
+	// Assign the form values to the struct elements.
+	testCase.wages = Convert::ToInt32(wages->Text);
+	testCase.taxExmp = Convert::ToInt32(taxExmp->Text);
+	testCase.taxInt = Convert::ToInt32(taxInt->Text);
+	testCase.qualDiv = Convert::ToInt32(qualDiv->Text);
+	testCase.ordDiv = Convert::ToInt32(ordDiv->Text);
+	testCase.capGain = Convert::ToInt32(capGain->Text);
+	testCase.taxAmt = Convert::ToInt32(taxAmt->Text);
+	testCase.ssb = Convert::ToInt32(ssb->Text);
+	testCase.adj2inc = Convert::ToInt32(adj2inc->Text);
+
+	MessageBox::Show
+	(
+		"Filing status: " + "\n"
+		"Standard deduction: " + testCase.sd + "\n"
+		"Living Arrangement: " + "\n"
+		"Wages: " + testCase.wages + 
+		"Tax exempt interest: " + testCase.taxExmp + "\n"
+		"Taxable interest: " + testCase.taxInt + "\n"
+		"Qualified dividends: " + testCase.qualDiv + "\n"
+		"Ordinary dividends: " + testCase.ordDiv + "\n"
+		"Capital gains distribution (or loss): " + testCase.capGain + "\n"
+		"Taxable amount: " + testCase.taxAmt + "\n"
+		"Social security benefits: " + testCase.ssb + "\n"
+		"Adjustments to income: " + testCase.adj2inc
+	);
 }
 };
 }
