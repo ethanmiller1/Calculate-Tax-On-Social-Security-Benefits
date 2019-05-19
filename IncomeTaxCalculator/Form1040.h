@@ -1,6 +1,6 @@
 #pragma once
+
 #include "InputData_BO.h"
-#include <windowsx.h>
 
 namespace IncomeTaxCalculator {
 
@@ -111,6 +111,8 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::CheckBox^  sover65;
 	private: System::Windows::Forms::CheckBox^  blind;
 	private: System::Windows::Forms::CheckBox^  over65;
+
+
 
 
 
@@ -450,6 +452,7 @@ namespace IncomeTaxCalculator {
 			this->single->TabStop = true;
 			this->single->Text = L"Single";
 			this->single->UseVisualStyleBackColor = true;
+			this->single->CheckedChanged += gcnew System::EventHandler(this, &Form1040::single_CheckedChanged);
 			// 
 			// married
 			// 
@@ -586,7 +589,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		{
 		case 0: testCase.sd = 12000; break;
 		case 1: testCase.sd = 13600; break;
-		case 2: case 3: case 4: testCase.sd = 15200; break;
+		case 2: testCase.sd = 15200; break;
 		}
 	}
 	// Standard Deduction if married.
@@ -628,6 +631,23 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		"Social security benefits: " + testCase.ssb + "\n"
 		"Adjustments to income: " + testCase.adj2inc
 	);
+}
+private: System::Void single_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+	// Disable spouse deduction checkbox if single.
+	if (single->Checked)
+	{
+		this->sover65->Checked = false;
+		this->sblind->Checked = false;
+		this->sover65->Enabled = false;
+		this->sblind->Enabled = false;
+		
+	}
+	// Enable spouse deduction checkbox if not single.
+	else
+	{
+		this->sover65->Enabled = true;
+		this->sblind->Enabled = true;
+	}
 }
 };
 }
