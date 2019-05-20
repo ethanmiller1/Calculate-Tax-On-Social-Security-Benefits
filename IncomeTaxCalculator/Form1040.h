@@ -1,6 +1,8 @@
 #pragma once
 
 #include "InputData_BO.h"
+#include <msclr\marshal_cppstd.h>
+#include <string>
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -138,6 +140,11 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::CheckBox^  sover65;
 	private: System::Windows::Forms::CheckBox^  blind;
 	private: System::Windows::Forms::CheckBox^  over65;
+	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
+
+
+
+	private: System::ComponentModel::IContainer^  components;
 
 
 
@@ -148,7 +155,7 @@ namespace IncomeTaxCalculator {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -196,6 +203,7 @@ namespace IncomeTaxCalculator {
 			this->sover65 = (gcnew System::Windows::Forms::CheckBox());
 			this->blind = (gcnew System::Windows::Forms::CheckBox());
 			this->over65 = (gcnew System::Windows::Forms::CheckBox());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->menuStrip1->SuspendLayout();
 			this->toolStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -243,7 +251,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// toolStripSplitButton1
 			// 
-			this->toolStripSplitButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+			this->toolStripSplitButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
 			this->toolStripSplitButton1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->importFileToolStripMenuItem,
 					this->exportDataToFileToolStripMenuItem
@@ -251,14 +259,15 @@ namespace IncomeTaxCalculator {
 			this->toolStripSplitButton1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripSplitButton1.Image")));
 			this->toolStripSplitButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripSplitButton1->Name = L"toolStripSplitButton1";
-			this->toolStripSplitButton1->Size = System::Drawing::Size(32, 22);
-			this->toolStripSplitButton1->Text = L"toolStripSplitButton1";
+			this->toolStripSplitButton1->Size = System::Drawing::Size(41, 22);
+			this->toolStripSplitButton1->Text = L"File";
 			// 
 			// importFileToolStripMenuItem
 			// 
 			this->importFileToolStripMenuItem->Name = L"importFileToolStripMenuItem";
 			this->importFileToolStripMenuItem->Size = System::Drawing::Size(189, 22);
 			this->importFileToolStripMenuItem->Text = L"Import Data From File";
+			this->importFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1040::importFileToolStripMenuItem_Click);
 			// 
 			// exportDataToFileToolStripMenuItem
 			// 
@@ -546,6 +555,10 @@ namespace IncomeTaxCalculator {
 			this->over65->Text = L"You were born before January 2, 1954";
 			this->over65->UseVisualStyleBackColor = true;
 			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
 			// Form1040
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -591,6 +604,7 @@ namespace IncomeTaxCalculator {
 		}
 #pragma endregion
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	// TODO: Move code to a function in InputData_BO and invoke it here.
 	// Create an instance of the InputData_BO struct.
 	InputData_BO testCase("testCase1.txt");
 
@@ -684,6 +698,46 @@ private: System::Void wages_KeyPress(System::Object^  sender, System::Windows::F
 		// Accept only digits and the Backspace character.
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
 			e->Handled = true;
+	}
+}
+private: System::Void importFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	
+	// Set initial browse directory and show only txt files.
+	// TODO: Make path relative.
+	openFileDialog1->InitialDirectory = "A:\\xampp\\htdocs\\C++\\IncomeTaxCalculator\\IncomeTaxCalculator";
+	openFileDialog1->Filter = "txt files (*.txt)|*.txt";
+	openFileDialog1->FilterIndex = 2;
+	openFileDialog1->RestoreDirectory = true;
+	
+	// Prompt the user to select file to use.
+	openFileDialog1->ShowDialog();
+
+	// Convert file name system::string^ to std::string to pass in as an InputData_BO argument.
+	std::string inpath = msclr::interop::marshal_as<std::string>(openFileDialog1->SafeFileName);
+	string infile = inpath;
+
+	// Create a struct object from values in a text file using the struct constructor.
+	InputData_BO testCase(infile);
+
+	// Set textbox fields to struct values.
+	wages->Text = testCase.wages.ToString();
+	taxExmp->Text = testCase.taxExmp.ToString();
+	taxInt->Text = testCase.taxInt.ToString();
+	qualDiv->Text = testCase.qualDiv.ToString();
+	ordDiv->Text = testCase.ordDiv.ToString();
+	capGain->Text = testCase.capGain.ToString();
+	taxAmt->Text = testCase.taxAmt.ToString();
+	ssb->Text = testCase.ssb.ToString();
+	adj2inc->Text = testCase.adj2inc.ToString();
+
+	// Set Form 1040 filing status to struct value.
+	switch (testCase.fs)
+	{
+	case SINGLE: single->Checked = true; break;
+	case MARRIED: married->Checked = true; break;
+	case MARRIEDFS: marriedfs->Checked = true; break;
+	case WIDOW: widow->Checked = true; break;
+	case HDHOUSEHOLD: hdhousehold->Checked = true; break;
 	}
 }
 };
