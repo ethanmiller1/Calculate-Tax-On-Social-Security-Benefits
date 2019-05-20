@@ -1,15 +1,42 @@
 #pragma once
 
 #include "InputData_BO.h"
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+
+// Validate that user input is numeric.
+int validateField(System::Windows::Forms::TextBox^ textBox)
+{
+	// Declare variable to hold the textbox value.
+	int value(0);
+
+	// If textbox is empty, assign its value to zero.
+	if (textBox->Text->Length == 0)
+	{
+		value = 0;
+	}
+	// Check that input is a numeric value.
+	else if (System::Text::RegularExpressions::Regex::IsMatch(textBox->Text,
+		"^[0-9]*$"))
+	{
+		value = Convert::ToInt32(textBox->Text);
+	}
+	// If textbox contains non-numeric characters, alert the user.
+	else
+	{
+		MessageBox::Show("Must be a number");
+	}
+
+	return value;
+}
 
 namespace IncomeTaxCalculator {
 
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
+	
 
 	/// <summary>
 	/// Summary for Form1040
@@ -254,6 +281,7 @@ namespace IncomeTaxCalculator {
 			this->wages->Name = L"wages";
 			this->wages->Size = System::Drawing::Size(100, 20);
 			this->wages->TabIndex = 3;
+			this->wages->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1040::wages_KeyPress);
 			// 
 			// taxExmp
 			// 
@@ -566,14 +594,14 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	// Create an instance of the InputData_BO struct.
 	InputData_BO testCase("testCase1.txt");
 
-	// Check filing status.
+	// Get filing status from which radio button the user selects.
 	if (single->Checked) { testCase.fs = SINGLE; }
 	else if (married->Checked) { testCase.fs = MARRIED; }
 	else if (marriedfs->Checked) { testCase.fs = MARRIEDFS; }
 	else if (widow->Checked) { testCase.fs = WIDOW; }
 	else if (hdhousehold->Checked) { testCase.fs = HDHOUSEHOLD; }
 
-	// Create variable to store how boxes checked for standard deduction.
+	// Create variable to store how many boxes checked for standard deduction.
 	int boxes_checked(0);
 
 	// Add 1 to boxes_checked for every checkbox that is checked.
@@ -605,23 +633,25 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		}
 	}
 
-	// Assign the form values to the struct elements.
-	testCase.wages = Convert::ToInt32(wages->Text);
-	testCase.taxExmp = Convert::ToInt32(taxExmp->Text);
-	testCase.taxInt = Convert::ToInt32(taxInt->Text);
-	testCase.qualDiv = Convert::ToInt32(qualDiv->Text);
-	testCase.ordDiv = Convert::ToInt32(ordDiv->Text);
-	testCase.capGain = Convert::ToInt32(capGain->Text);
-	testCase.taxAmt = Convert::ToInt32(taxAmt->Text);
-	testCase.ssb = Convert::ToInt32(ssb->Text);
-	testCase.adj2inc = Convert::ToInt32(adj2inc->Text);
+	// Assign user textbox values to the struct elements.
+	// TODO: Create a collection of textboxes and a parellel array of struct elements to iterate through them with a for loop.
+	testCase.wages = validateField(wages);
+	testCase.taxExmp = validateField(taxExmp);
+	testCase.taxInt = validateField(taxInt);
+	testCase.qualDiv = validateField(qualDiv);
+	testCase.ordDiv = validateField(ordDiv);
+	testCase.capGain = validateField(capGain);
+	testCase.taxAmt = validateField(taxAmt);
+	testCase.ssb = validateField(ssb);
+	testCase.adj2inc = validateField(adj2inc);
 
+	// Display the struct elements to ensure they were set correctly.
 	MessageBox::Show
 	(
 		"Filing status: " + testCase.fs + "\n"
 		"Standard deduction: " + testCase.sd + "\n"
 		"Living Arrangement: " + "\n"
-		"Wages: " + testCase.wages + 
+		"Wages: " + testCase.wages + "\n"
 		"Tax exempt interest: " + testCase.taxExmp + "\n"
 		"Taxable interest: " + testCase.taxInt + "\n"
 		"Qualified dividends: " + testCase.qualDiv + "\n"
@@ -647,6 +677,13 @@ private: System::Void single_CheckedChanged(System::Object^  sender, System::Eve
 	{
 		this->sover65->Enabled = true;
 		this->sblind->Enabled = true;
+	}
+}
+private: System::Void wages_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+	{
+		// Accept only digits and the Backspace character.
+		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
+			e->Handled = true;
 	}
 }
 };
