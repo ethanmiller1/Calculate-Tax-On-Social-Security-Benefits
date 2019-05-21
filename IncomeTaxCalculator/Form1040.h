@@ -2,6 +2,7 @@
 
 #include "InputData_BO.h"
 #include <msclr\marshal_cppstd.h>
+#include <fstream>
 #include <string>
 using namespace System;
 using namespace System::ComponentModel;
@@ -34,6 +35,15 @@ int validateField(System::Windows::Forms::TextBox^ textBox)
 	}
 
 	return value;
+}
+
+// Declare function to split file name.
+string SplitFilename(const std::string& str)
+{
+	size_t found = str.find_last_of("/\\");
+	string path = str.substr(0, found);
+	string file = str.substr(found + 1);
+	return file;
 }
 
 namespace IncomeTaxCalculator {
@@ -141,6 +151,7 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::CheckBox^  blind;
 	private: System::Windows::Forms::CheckBox^  over65;
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
+	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
 
 
 
@@ -204,6 +215,7 @@ namespace IncomeTaxCalculator {
 			this->blind = (gcnew System::Windows::Forms::CheckBox());
 			this->over65 = (gcnew System::Windows::Forms::CheckBox());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->menuStrip1->SuspendLayout();
 			this->toolStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -274,6 +286,7 @@ namespace IncomeTaxCalculator {
 			this->exportDataToFileToolStripMenuItem->Name = L"exportDataToFileToolStripMenuItem";
 			this->exportDataToFileToolStripMenuItem->Size = System::Drawing::Size(189, 22);
 			this->exportDataToFileToolStripMenuItem->Text = L"Export Data To File";
+			this->exportDataToFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1040::exportDataToFileToolStripMenuItem_Click);
 			// 
 			// label1
 			// 
@@ -606,6 +619,7 @@ namespace IncomeTaxCalculator {
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	// TODO: Move code to a function in InputData_BO and invoke it here.
 	// Create an instance of the InputData_BO struct.
+	// TODO: Instantiate InputData_BO without using the constructor.
 	InputData_BO testCase("testCase1.txt");
 
 	// Get filing status from which radio button the user selects.
@@ -647,6 +661,15 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		}
 	}
 
+	// Living Arrangement.
+	switch (testCase.fs)
+	{
+	case SINGLE: case HDHOUSEHOLD: testCase.LA = 0; break;
+	case MARRIED: testCase.LA = 1; break;
+	case MARRIEDFS: testCase.LA = 2; break;
+	case 6: testCase.LA = 3; break;
+	}
+
 	// Assign user textbox values to the struct elements.
 	// TODO: Create a collection of textboxes and a parellel array of struct elements to iterate through them with a for loop.
 	testCase.wages = validateField(wages);
@@ -664,7 +687,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	(
 		"Filing status: " + testCase.fs + "\n"
 		"Standard deduction: " + testCase.sd + "\n"
-		"Living Arrangement: " + "\n"
+		"Living Arrangement: " + testCase.LA +"\n"
 		"Wages: " + testCase.wages + "\n"
 		"Tax exempt interest: " + testCase.taxExmp + "\n"
 		"Taxable interest: " + testCase.taxInt + "\n"
@@ -694,14 +717,11 @@ private: System::Void single_CheckedChanged(System::Object^  sender, System::Eve
 	}
 }
 private: System::Void wages_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
-	{
 		// Accept only digits and the Backspace character.
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
 			e->Handled = true;
-	}
 }
 private: System::Void importFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-	
 	// Set initial browse directory and show only txt files.
 	// TODO: Make path relative.
 	openFileDialog1->InitialDirectory = "A:\\xampp\\htdocs\\C++\\IncomeTaxCalculator\\IncomeTaxCalculator";
@@ -739,6 +759,70 @@ private: System::Void importFileToolStripMenuItem_Click(System::Object^  sender,
 	case WIDOW: widow->Checked = true; break;
 	case HDHOUSEHOLD: hdhousehold->Checked = true; break;
 	}
+}
+private: System::Void exportDataToFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	// Open save file dialog and filter by txt files.
+	saveFileDialog1->Filter = "txt files (*.txt)|*.txt";
+	saveFileDialog1->OverwritePrompt;
+	saveFileDialog1->ShowDialog();
+	saveFileDialog1->Title = "Save a text file";
+
+	// Get the file path.
+	std::string outpath = msclr::interop::marshal_as<std::string>(saveFileDialog1->FileName);
+	string ofile = outpath;
+
+	// Splice file name from file path.
+	string outfile = SplitFilename(ofile);
+
+	// 
+	ofstream textfile;
+
+	// Create the textfile.
+	textfile.open(outfile);
+
+	//*Export data to txt file.
+	// Filing Status.
+	int fs(0);
+	if (single->Checked) { fs = SINGLE; }
+	else if (married->Checked) { fs = MARRIED; }
+	else if (marriedfs->Checked) { fs = MARRIEDFS; }
+	else if (widow->Checked) { fs = WIDOW; }
+	else if (hdhousehold->Checked) { fs = HDHOUSEHOLD; }
+
+	// Create variable to store how many boxes checked for standard deduction.
+	int boxes_checked(0);
+
+	// Add 1 to boxes_checked for every checkbox that is checked.
+	if (over65->Checked) { boxes_checked += 1; }
+	if (blind->Checked) { boxes_checked += 1; }
+	if (sover65->Checked) { boxes_checked += 1; }
+	if (sblind->Checked) { boxes_checked += 1; }
+
+	// Living Arrangement.
+	int LA(0);
+	switch (fs)
+	{
+	case SINGLE: case HDHOUSEHOLD: LA = 0; break;
+	case MARRIED: LA = 1; break;
+	case MARRIEDFS: LA = 2; break;
+	case 6: LA = 3; break;
+	}
+
+	// Write to textfile.
+	textfile << outfile << endl <<
+	fs << endl <<
+	boxes_checked << endl <<
+	LA << endl <<
+	validateField(wages) << endl <<
+	validateField(wages) << endl <<
+	validateField(taxExmp) << endl <<
+	validateField(taxInt) << endl <<
+	validateField(qualDiv) << endl <<
+	validateField(ordDiv) << endl <<
+	validateField(capGain) << endl <<
+	validateField(taxAmt) << endl <<
+	validateField(ssb) << endl <<
+	validateField(adj2inc) << endl;
 }
 };
 }
