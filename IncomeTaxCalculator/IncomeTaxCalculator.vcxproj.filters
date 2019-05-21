@@ -50,4 +50,9 @@
   <ItemGroup>
     <None Include="..\.gitignore" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1040.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

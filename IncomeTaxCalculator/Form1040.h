@@ -4,6 +4,7 @@
 #include <msclr\marshal_cppstd.h>
 #include <fstream>
 #include <string>
+#include <iostream>
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -44,6 +45,32 @@ string SplitFilename(const std::string& str)
 	string path = str.substr(0, found);
 	string file = str.substr(found + 1);
 	return file;
+}
+
+// Create a function to get the working directory.
+string GetPath()
+{
+	// Get the path of the executable file.
+	char buffer[MAX_PATH];
+	GetModuleFileNameA(NULL, buffer, sizeof(buffer));
+
+	// Cut out the filename from the string.
+	string str = string(buffer);
+	size_t filename = str.find_last_of("/\\");
+	string debugpath = str.substr(0, filename);
+
+	// Move one directory back (cd ..).
+	size_t debugfolder = debugpath.find_last_of("/\\");
+	string parentpath = debugpath.substr(0, debugfolder);
+
+	// Get the name of the project folder.
+	size_t parentfolder = parentpath.find_last_of("/\\");
+	string name = parentpath.substr(parentfolder + 1);
+
+	// Append project name to parent path.
+	string path = parentpath + "\\" + name;
+
+	return path;
 }
 
 namespace IncomeTaxCalculator {
@@ -651,10 +678,8 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	testCase.ssb = validateField(ssb);
 	testCase.adj2inc = validateField(adj2inc);
 
-	// Perform calculations
+	// Perform calculations and show the result of tax due.
 	testCase.showInputFields();
-
-
 }
 private: System::Void single_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	// Disable spouse deduction checkbox if single.
@@ -679,9 +704,15 @@ private: System::Void wages_KeyPress(System::Object^  sender, System::Windows::F
 			e->Handled = true;
 }
 private: System::Void importDataFromFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	// Get relative path for the working directory.
+	string path = GetPath();
+
+	// Convert path std::string to system::string^ to assign to InitialDirectory.
+	String^ result;
+	result = msclr::interop::marshal_as<String^>(path);
+
 	// Set initial browse directory and show only txt files.
-	// TODO: Make path relative.
-	openFileDialog1->InitialDirectory = "A:\\xampp\\htdocs\\C++\\IncomeTaxCalculator\\IncomeTaxCalculator";
+	openFileDialog1->InitialDirectory = result;
 	openFileDialog1->Filter = "txt files (*.txt)|*.txt";
 	openFileDialog1->FilterIndex = 2;
 	openFileDialog1->RestoreDirectory = true;
