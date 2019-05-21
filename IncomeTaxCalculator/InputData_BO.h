@@ -21,10 +21,11 @@ struct InputData_BO
 	double   taxAmt;     // Taxable amount (form 1040 4b)
 	double 	 ssb;        // Social security benefits 
 	double 	 adj2inc;    // Adjustments to income
+	double   getTaxableAmount();
 
 	InputData_BO(const string filename);   //constructor
 
 	void showInputFields();               //output method
 };
-double getTaxableAmount(InputData_BO);
+
 #endif

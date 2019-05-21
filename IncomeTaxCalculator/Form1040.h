@@ -116,28 +116,6 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::Button^  submit;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::ToolStripMenuItem^  exportDataToFileToolStripMenuItem;
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 	private: System::Windows::Forms::RadioButton^  hdhousehold;
@@ -154,12 +132,7 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
 
 
-
 	private: System::ComponentModel::IContainer^  components;
-
-
-
-
 
 
 	private:
@@ -682,22 +655,10 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	testCase.ssb = validateField(ssb);
 	testCase.adj2inc = validateField(adj2inc);
 
-	// Display the struct elements to ensure they were set correctly.
-	MessageBox::Show
-	(
-		"Filing status: " + testCase.fs + "\n"
-		"Standard deduction: " + testCase.sd + "\n"
-		"Living Arrangement: " + testCase.LA +"\n"
-		"Wages: " + testCase.wages + "\n"
-		"Tax exempt interest: " + testCase.taxExmp + "\n"
-		"Taxable interest: " + testCase.taxInt + "\n"
-		"Qualified dividends: " + testCase.qualDiv + "\n"
-		"Ordinary dividends: " + testCase.ordDiv + "\n"
-		"Capital gains distribution (or loss): " + testCase.capGain + "\n"
-		"Taxable amount: " + testCase.taxAmt + "\n"
-		"Social security benefits: " + testCase.ssb + "\n"
-		"Adjustments to income: " + testCase.adj2inc
-	);
+	// Perform calculations
+	testCase.showInputFields();
+
+
 }
 private: System::Void single_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	// Disable spouse deduction checkbox if single.
@@ -774,10 +735,10 @@ private: System::Void exportDataToFileToolStripMenuItem_Click(System::Object^  s
 	// Splice file name from file path.
 	string outfile = SplitFilename(ofile);
 
-	// 
+	// Create output file object.
 	ofstream textfile;
 
-	// Create the textfile.
+	// Create the output file.
 	textfile.open(outfile);
 
 	//*Export data to txt file.
