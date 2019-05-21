@@ -78,15 +78,15 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::MenuStrip^  menuStrip1;
 	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^  incomeTaxToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  qualifiedDividendsTaxToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  socialSecurityBenefitsTaxToolStripMenuItem;
-	private: System::Windows::Forms::ToolStrip^  toolStrip1;
+
+
+
 
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::TextBox^  wages;
 
-	private: System::Windows::Forms::ToolStripSplitButton^  toolStripSplitButton1;
-	private: System::Windows::Forms::ToolStripMenuItem^  importFileToolStripMenuItem;
+
+
 	private: System::Windows::Forms::TextBox^  taxExmp;
 
 
@@ -116,7 +116,7 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::Button^  submit;
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^  exportDataToFileToolStripMenuItem;
+
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 	private: System::Windows::Forms::RadioButton^  hdhousehold;
 	private: System::Windows::Forms::RadioButton^  marriedfs;
@@ -130,6 +130,12 @@ namespace IncomeTaxCalculator {
 	private: System::Windows::Forms::CheckBox^  over65;
 	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
 	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
+	private: System::Windows::Forms::ToolStripMenuItem^  exportDataToFileToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^  importDataFromFileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  changeCalculatorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  incomeTaxToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^  qualifiedDividendsTaxToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^  socialSecurityBenefitsTaxToolStripMenuItem1;
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -148,15 +154,14 @@ namespace IncomeTaxCalculator {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1040::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->incomeTaxToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->qualifiedDividendsTaxToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->socialSecurityBenefitsTaxToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
-			this->toolStripSplitButton1 = (gcnew System::Windows::Forms::ToolStripSplitButton());
-			this->importFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->exportDataToFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->importDataFromFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->exportDataToFileToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->changeCalculatorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->incomeTaxToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->qualifiedDividendsTaxToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->socialSecurityBenefitsTaxToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->wages = (gcnew System::Windows::Forms::TextBox());
 			this->taxExmp = (gcnew System::Windows::Forms::TextBox());
@@ -190,81 +195,75 @@ namespace IncomeTaxCalculator {
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->menuStrip1->SuspendLayout();
-			this->toolStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->incomeTaxToolStripMenuItem,
-					this->qualifiedDividendsTaxToolStripMenuItem, this->socialSecurityBenefitsTaxToolStripMenuItem
-			});
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->incomeTaxToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(443, 24);
+			this->menuStrip1->Size = System::Drawing::Size(694, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// incomeTaxToolStripMenuItem
 			// 
-			this->incomeTaxToolStripMenuItem->Name = L"incomeTaxToolStripMenuItem";
-			this->incomeTaxToolStripMenuItem->Size = System::Drawing::Size(79, 20);
-			this->incomeTaxToolStripMenuItem->Text = L"Income Tax";
-			// 
-			// qualifiedDividendsTaxToolStripMenuItem
-			// 
-			this->qualifiedDividendsTaxToolStripMenuItem->Name = L"qualifiedDividendsTaxToolStripMenuItem";
-			this->qualifiedDividendsTaxToolStripMenuItem->Size = System::Drawing::Size(142, 20);
-			this->qualifiedDividendsTaxToolStripMenuItem->Text = L"Qualified Dividends Tax";
-			// 
-			// socialSecurityBenefitsTaxToolStripMenuItem
-			// 
-			this->socialSecurityBenefitsTaxToolStripMenuItem->Name = L"socialSecurityBenefitsTaxToolStripMenuItem";
-			this->socialSecurityBenefitsTaxToolStripMenuItem->Size = System::Drawing::Size(160, 20);
-			this->socialSecurityBenefitsTaxToolStripMenuItem->Text = L"Social Security Benefits Tax";
-			// 
-			// toolStrip1
-			// 
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripSplitButton1 });
-			this->toolStrip1->Location = System::Drawing::Point(0, 24);
-			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(443, 25);
-			this->toolStrip1->TabIndex = 1;
-			this->toolStrip1->Text = L"toolStrip1";
-			// 
-			// toolStripSplitButton1
-			// 
-			this->toolStripSplitButton1->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->toolStripSplitButton1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->importFileToolStripMenuItem,
-					this->exportDataToFileToolStripMenuItem
+			this->incomeTaxToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->importDataFromFileToolStripMenuItem,
+					this->exportDataToFileToolStripMenuItem1, this->changeCalculatorToolStripMenuItem
 			});
-			this->toolStripSplitButton1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripSplitButton1.Image")));
-			this->toolStripSplitButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->toolStripSplitButton1->Name = L"toolStripSplitButton1";
-			this->toolStripSplitButton1->Size = System::Drawing::Size(41, 22);
-			this->toolStripSplitButton1->Text = L"File";
+			this->incomeTaxToolStripMenuItem->Name = L"incomeTaxToolStripMenuItem";
+			this->incomeTaxToolStripMenuItem->Size = System::Drawing::Size(37, 20);
+			this->incomeTaxToolStripMenuItem->Text = L"File";
 			// 
-			// importFileToolStripMenuItem
+			// importDataFromFileToolStripMenuItem
 			// 
-			this->importFileToolStripMenuItem->Name = L"importFileToolStripMenuItem";
-			this->importFileToolStripMenuItem->Size = System::Drawing::Size(189, 22);
-			this->importFileToolStripMenuItem->Text = L"Import Data From File";
-			this->importFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1040::importFileToolStripMenuItem_Click);
+			this->importDataFromFileToolStripMenuItem->Name = L"importDataFromFileToolStripMenuItem";
+			this->importDataFromFileToolStripMenuItem->Size = System::Drawing::Size(189, 22);
+			this->importDataFromFileToolStripMenuItem->Text = L"Import Data From File";
+			this->importDataFromFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1040::importDataFromFileToolStripMenuItem_Click);
 			// 
-			// exportDataToFileToolStripMenuItem
+			// exportDataToFileToolStripMenuItem1
 			// 
-			this->exportDataToFileToolStripMenuItem->Name = L"exportDataToFileToolStripMenuItem";
-			this->exportDataToFileToolStripMenuItem->Size = System::Drawing::Size(189, 22);
-			this->exportDataToFileToolStripMenuItem->Text = L"Export Data To File";
-			this->exportDataToFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1040::exportDataToFileToolStripMenuItem_Click);
+			this->exportDataToFileToolStripMenuItem1->Name = L"exportDataToFileToolStripMenuItem1";
+			this->exportDataToFileToolStripMenuItem1->Size = System::Drawing::Size(189, 22);
+			this->exportDataToFileToolStripMenuItem1->Text = L"Export Data To File";
+			this->exportDataToFileToolStripMenuItem1->Click += gcnew System::EventHandler(this, &Form1040::exportDataToFileToolStripMenuItem1_Click);
+			// 
+			// changeCalculatorToolStripMenuItem
+			// 
+			this->changeCalculatorToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->incomeTaxToolStripMenuItem1,
+					this->qualifiedDividendsTaxToolStripMenuItem1, this->socialSecurityBenefitsTaxToolStripMenuItem1
+			});
+			this->changeCalculatorToolStripMenuItem->Name = L"changeCalculatorToolStripMenuItem";
+			this->changeCalculatorToolStripMenuItem->Size = System::Drawing::Size(189, 22);
+			this->changeCalculatorToolStripMenuItem->Text = L"Change Calculator";
+			// 
+			// incomeTaxToolStripMenuItem1
+			// 
+			this->incomeTaxToolStripMenuItem1->Name = L"incomeTaxToolStripMenuItem1";
+			this->incomeTaxToolStripMenuItem1->Size = System::Drawing::Size(215, 22);
+			this->incomeTaxToolStripMenuItem1->Text = L"Income Tax";
+			// 
+			// qualifiedDividendsTaxToolStripMenuItem1
+			// 
+			this->qualifiedDividendsTaxToolStripMenuItem1->Name = L"qualifiedDividendsTaxToolStripMenuItem1";
+			this->qualifiedDividendsTaxToolStripMenuItem1->Size = System::Drawing::Size(215, 22);
+			this->qualifiedDividendsTaxToolStripMenuItem1->Text = L"Qualified Dividends Tax";
+			// 
+			// socialSecurityBenefitsTaxToolStripMenuItem1
+			// 
+			this->socialSecurityBenefitsTaxToolStripMenuItem1->Name = L"socialSecurityBenefitsTaxToolStripMenuItem1";
+			this->socialSecurityBenefitsTaxToolStripMenuItem1->Size = System::Drawing::Size(215, 22);
+			this->socialSecurityBenefitsTaxToolStripMenuItem1->Text = L"Social Security Benefits Tax";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(97, 75);
+			this->label1->Location = System::Drawing::Point(364, 64);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(72, 13);
 			this->label1->TabIndex = 2;
@@ -272,7 +271,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// wages
 			// 
-			this->wages->Location = System::Drawing::Point(282, 72);
+			this->wages->Location = System::Drawing::Point(549, 61);
 			this->wages->Name = L"wages";
 			this->wages->Size = System::Drawing::Size(100, 20);
 			this->wages->TabIndex = 3;
@@ -280,7 +279,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// taxExmp
 			// 
-			this->taxExmp->Location = System::Drawing::Point(282, 98);
+			this->taxExmp->Location = System::Drawing::Point(549, 87);
 			this->taxExmp->Name = L"taxExmp";
 			this->taxExmp->Size = System::Drawing::Size(100, 20);
 			this->taxExmp->TabIndex = 5;
@@ -288,7 +287,7 @@ namespace IncomeTaxCalculator {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(97, 101);
+			this->label2->Location = System::Drawing::Point(364, 90);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(132, 13);
 			this->label2->TabIndex = 4;
@@ -296,7 +295,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// taxInt
 			// 
-			this->taxInt->Location = System::Drawing::Point(282, 124);
+			this->taxInt->Location = System::Drawing::Point(549, 113);
 			this->taxInt->Name = L"taxInt";
 			this->taxInt->Size = System::Drawing::Size(100, 20);
 			this->taxInt->TabIndex = 7;
@@ -304,7 +303,7 @@ namespace IncomeTaxCalculator {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(97, 127);
+			this->label3->Location = System::Drawing::Point(364, 116);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(114, 13);
 			this->label3->TabIndex = 6;
@@ -312,7 +311,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// qualDiv
 			// 
-			this->qualDiv->Location = System::Drawing::Point(282, 150);
+			this->qualDiv->Location = System::Drawing::Point(549, 139);
 			this->qualDiv->Name = L"qualDiv";
 			this->qualDiv->Size = System::Drawing::Size(100, 20);
 			this->qualDiv->TabIndex = 9;
@@ -320,7 +319,7 @@ namespace IncomeTaxCalculator {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(97, 153);
+			this->label4->Location = System::Drawing::Point(364, 142);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(129, 13);
 			this->label4->TabIndex = 8;
@@ -328,7 +327,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// ordDiv
 			// 
-			this->ordDiv->Location = System::Drawing::Point(282, 176);
+			this->ordDiv->Location = System::Drawing::Point(549, 165);
 			this->ordDiv->Name = L"ordDiv";
 			this->ordDiv->Size = System::Drawing::Size(100, 20);
 			this->ordDiv->TabIndex = 11;
@@ -336,7 +335,7 @@ namespace IncomeTaxCalculator {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(97, 179);
+			this->label5->Location = System::Drawing::Point(364, 168);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(127, 13);
 			this->label5->TabIndex = 10;
@@ -344,7 +343,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// capGain
 			// 
-			this->capGain->Location = System::Drawing::Point(282, 202);
+			this->capGain->Location = System::Drawing::Point(549, 191);
 			this->capGain->Name = L"capGain";
 			this->capGain->Size = System::Drawing::Size(100, 20);
 			this->capGain->TabIndex = 13;
@@ -352,7 +351,7 @@ namespace IncomeTaxCalculator {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(97, 205);
+			this->label6->Location = System::Drawing::Point(364, 194);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(166, 13);
 			this->label6->TabIndex = 12;
@@ -360,7 +359,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// taxAmt
 			// 
-			this->taxAmt->Location = System::Drawing::Point(282, 228);
+			this->taxAmt->Location = System::Drawing::Point(549, 217);
 			this->taxAmt->Name = L"taxAmt";
 			this->taxAmt->Size = System::Drawing::Size(100, 20);
 			this->taxAmt->TabIndex = 15;
@@ -368,7 +367,7 @@ namespace IncomeTaxCalculator {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(97, 231);
+			this->label7->Location = System::Drawing::Point(364, 220);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(115, 13);
 			this->label7->TabIndex = 14;
@@ -376,7 +375,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// ssb
 			// 
-			this->ssb->Location = System::Drawing::Point(282, 254);
+			this->ssb->Location = System::Drawing::Point(549, 243);
 			this->ssb->Name = L"ssb";
 			this->ssb->Size = System::Drawing::Size(100, 20);
 			this->ssb->TabIndex = 17;
@@ -384,7 +383,7 @@ namespace IncomeTaxCalculator {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(97, 257);
+			this->label8->Location = System::Drawing::Point(364, 246);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(149, 13);
 			this->label8->TabIndex = 16;
@@ -392,7 +391,7 @@ namespace IncomeTaxCalculator {
 			// 
 			// adj2inc
 			// 
-			this->adj2inc->Location = System::Drawing::Point(282, 280);
+			this->adj2inc->Location = System::Drawing::Point(549, 269);
 			this->adj2inc->Name = L"adj2inc";
 			this->adj2inc->Size = System::Drawing::Size(100, 20);
 			this->adj2inc->TabIndex = 19;
@@ -400,7 +399,7 @@ namespace IncomeTaxCalculator {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(97, 283);
+			this->label9->Location = System::Drawing::Point(364, 272);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(145, 13);
 			this->label9->TabIndex = 18;
@@ -410,9 +409,9 @@ namespace IncomeTaxCalculator {
 			// 
 			this->submit->BackColor = System::Drawing::SystemColors::MenuHighlight;
 			this->submit->ForeColor = System::Drawing::Color::Snow;
-			this->submit->Location = System::Drawing::Point(282, 615);
+			this->submit->Location = System::Drawing::Point(549, 338);
 			this->submit->Name = L"submit";
-			this->submit->Size = System::Drawing::Size(100, 33);
+			this->submit->Size = System::Drawing::Size(100, 32);
 			this->submit->TabIndex = 20;
 			this->submit->Text = L"OK";
 			this->submit->UseVisualStyleBackColor = false;
@@ -425,9 +424,9 @@ namespace IncomeTaxCalculator {
 			this->groupBox1->Controls->Add(this->widow);
 			this->groupBox1->Controls->Add(this->single);
 			this->groupBox1->Controls->Add(this->married);
-			this->groupBox1->Location = System::Drawing::Point(91, 309);
+			this->groupBox1->Location = System::Drawing::Point(28, 45);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(291, 143);
+			this->groupBox1->Size = System::Drawing::Size(291, 142);
 			this->groupBox1->TabIndex = 33;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Filing Status:";
@@ -494,9 +493,9 @@ namespace IncomeTaxCalculator {
 			this->groupBox2->Controls->Add(this->sover65);
 			this->groupBox2->Controls->Add(this->blind);
 			this->groupBox2->Controls->Add(this->over65);
-			this->groupBox2->Location = System::Drawing::Point(91, 473);
+			this->groupBox2->Location = System::Drawing::Point(28, 209);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(291, 116);
+			this->groupBox2->Size = System::Drawing::Size(291, 115);
 			this->groupBox2->TabIndex = 34;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Standard Deduction:";
@@ -549,7 +548,7 @@ namespace IncomeTaxCalculator {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(443, 664);
+			this->ClientSize = System::Drawing::Size(694, 395);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->submit);
@@ -571,15 +570,12 @@ namespace IncomeTaxCalculator {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->wages);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->toolStrip1);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Form1040";
 			this->Text = L"Form1040";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			this->toolStrip1->ResumeLayout(false);
-			this->toolStrip1->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
@@ -682,7 +678,7 @@ private: System::Void wages_KeyPress(System::Object^  sender, System::Windows::F
 		if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08)
 			e->Handled = true;
 }
-private: System::Void importFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void importDataFromFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	// Set initial browse directory and show only txt files.
 	// TODO: Make path relative.
 	openFileDialog1->InitialDirectory = "A:\\xampp\\htdocs\\C++\\IncomeTaxCalculator\\IncomeTaxCalculator";
@@ -721,7 +717,7 @@ private: System::Void importFileToolStripMenuItem_Click(System::Object^  sender,
 	case HDHOUSEHOLD: hdhousehold->Checked = true; break;
 	}
 }
-private: System::Void exportDataToFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void exportDataToFileToolStripMenuItem1_Click(System::Object^  sender, System::EventArgs^  e) {
 	// Open save file dialog and filter by txt files.
 	saveFileDialog1->Filter = "txt files (*.txt)|*.txt";
 	saveFileDialog1->OverwritePrompt;
