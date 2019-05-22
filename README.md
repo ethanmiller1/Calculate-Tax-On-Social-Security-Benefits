@@ -26,12 +26,23 @@ An exe exists in the root Debug folder, which may be run to execute the code and
 
 ## Usage
 
- - Fill out the input fields.
- - Import input fields from an existing txt file.
- - Export current fields to a txt file.
- - Click "OK" to run the calculations on the Form 1040 input values provided. It will display a messagebox that gives the final value.
+#### Calculate Tax
 
- ![Calculate Fields](https://github.com/king-melchizedek/Calculate-Tax-On-Social-Security-Benefits/raw/master/Demos/demo1_calculate_values.gif)
+Click "OK" to run the calculations on the Form 1040 input values provided. It will display a messagebox that gives the final value.
+
+![Calculate Fields](https://github.com/king-melchizedek/Calculate-Tax-On-Social-Security-Benefits/raw/master/Demos/calculate.gif)
+
+#### Export Data
+
+Export current fields to a txt file.
+
+![Calculate Fields](https://github.com/king-melchizedek/Calculate-Tax-On-Social-Security-Benefits/raw/master/Demos/export.gif)
+
+#### Import Data
+
+Import input fields from an existing txt file.
+
+![Calculate Fields](https://github.com/king-melchizedek/Calculate-Tax-On-Social-Security-Benefits/raw/master/Demos/import.gif)
 
 ## Contributors
 
