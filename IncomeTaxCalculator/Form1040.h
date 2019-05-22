@@ -4,7 +4,6 @@
 #include <msclr\marshal_cppstd.h>
 #include <fstream>
 #include <string>
-#include <iostream>
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -74,8 +73,6 @@ string GetPath()
 }
 
 namespace IncomeTaxCalculator {
-
-	
 
 	/// <summary>
 	/// Summary for Form1040
