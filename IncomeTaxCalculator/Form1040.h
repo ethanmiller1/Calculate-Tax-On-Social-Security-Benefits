@@ -799,7 +799,6 @@ private: System::Void exportDataToFileToolStripMenuItem1_Click(System::Object^  
 	boxes_checked << endl <<
 	LA << endl <<
 	validateField(wages) << endl <<
-	validateField(wages) << endl <<
 	validateField(taxExmp) << endl <<
 	validateField(taxInt) << endl <<
 	validateField(qualDiv) << endl <<
