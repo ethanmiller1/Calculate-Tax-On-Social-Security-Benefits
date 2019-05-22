@@ -6,7 +6,7 @@ Perform the calculations for the [Social Security Benefits Worksheet](https://ww
 
 ## Build
 
-Ensure you have an IDE that supports C++ (such as [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/ "Visual Studio Community"). ), then:
+Ensure you have an IDE that supports C++ (such as [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/ "Visual Studio Community")), then:
 
 ``` bash
 git clone https://github.com/king-melchizedek/Python-and-Flask-Web-App.git
